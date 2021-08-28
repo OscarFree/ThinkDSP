@@ -121,7 +121,7 @@ def read_wave(filename="sound.wav"):
 
     # ts = np.arange(len(ys)) / framerate
     wave = Wave(ys, framerate=framerate)
-    wave.normalize()
+    #wave.normalize()
     return wave
 
 
@@ -142,7 +142,7 @@ def read_wave_with_scipy(filename):
 
     # ts = np.arange(len(ys)) / framerate
     wave = Wave(ys, framerate=framerate)
-    wave.normalize()
+    #wave.normalize()
     return wave
 
 
@@ -1170,8 +1170,8 @@ def quantize(ys, bound, dtype):
     returns: quantized signal
     """
     if max(ys) > 1 or min(ys) < -1:
-        warnings.warn("Warning: normalizing before quantizing.")
-        ys = normalize(ys)
+        warnings.warn("Warning: file not normalized.")
+        #ys = normalize(ys)
 
     zs = (ys * bound).astype(dtype)
     return zs
